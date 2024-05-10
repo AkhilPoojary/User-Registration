@@ -58,14 +58,14 @@ public class UserTest {
 
     @ParameterizedTest
     @ValueSource(strings={"abc@yahoo.com","abc-100@yahoo.com","abc111@abc.com","abc.100@abc.com.au","abc@1.com","abc@1.com","abc@gmail.com.com","abc+100@gmail.com"})
-    public void emailVarification(String email2)
+    public void emailVerification(String email2)
     {
         assertTrue(email2.matches(User.email));
     }
 
     @ParameterizedTest
     @ValueSource(strings={"akhil#@gmail.com","sunil@gmail.com12","RAKSHITH@GMAIL.COM","1rama003@gmail.com.in","abc@1.com","prajwal*-12@gmail.com.in12","akhil003@gmail.com.com","abc+100@gmail.com"})
-    public void emailVarificationMultiVlaue(String email2)
+    public void emailVerificationMultiValue(String email2)
     {
         assertTrue(email2.matches(User.email));
     }

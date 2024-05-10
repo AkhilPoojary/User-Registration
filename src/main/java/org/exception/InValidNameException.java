@@ -1,4 +1,4 @@
-package org.example;
+package org.exception;
 
 public class InValidNameException extends Exception{
 

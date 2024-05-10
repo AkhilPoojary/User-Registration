@@ -1,6 +1,9 @@
 package org.example;
 
 
+import org.exception.InvalidEmailException;
+import org.exception.InvalidMobileNumberException;
+
 import javax.naming.InvalidNameException;
 import java.util.Scanner;
 
@@ -21,22 +24,54 @@ public class User {
 
         if(firstNamen.matches(firstName))
         {
-            System.out.println();
+            System.out.println("valid data");
         }
         else
             throw new InvalidNameException();
 
         System.out.println("enter the last name");
 
-        String lastName=sc.next();
+        String lastNamen=sc.next();
+
+        if(lastNamen.matches(lastName))
+        {
+            System.out.println("valid data");
+        }
+        else
+            throw new InvalidNameException();
 
         System.out.println("enter the email");
 
-        String email=sc.next();
+        String emailn=sc.next();
+
+        if(emailn.matches(email))
+        {
+            System.out.println("valid data");
+        }
+        else
+            throw new InvalidEmailException("invalid email");
 
         System.out.println("enter the password");
 
-        String password=sc.next();
+        String passwordn=sc.next();
+
+        if(passwordn.matches(password))
+        {
+            System.out.println("valid data");
+        }
+        else
+            throw new InvalidEmailException("invalid password");
+
+        System.out.println("enter the mobile number");
+
+        String mobileNumn=sc.next();
+
+        if(mobileNumn.matches(mobile))
+        {
+            System.out.println("valid number");
+        }
+        else
+            throw new InvalidMobileNumberException("invalid mobile number");
 
     }
 }
