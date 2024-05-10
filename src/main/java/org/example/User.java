@@ -1,9 +1,13 @@
 package org.example;
 
+
+import javax.naming.InvalidNameException;
+import java.util.Scanner;
+
 public class User {
     public	static String firstName="^[A-Z][a-z]{3,}$";
     public	static String lastName="^[A-Z][a-z]{3,}$";
-    public	static String email="[a-z]+\\.[a-z]+@[a-z]{2,}\\.[a-z]{2,}\\.[a-z]{2,3}$";
+    public	static String email="^[a-z]+[+\\.-]*[0-9]*@[a-z]*[0-9]*\\.[a-z]*[0-9]*[@]*[a-z]*[\\.]*[a-z]*$";
     public	static String mobile="[0-9]{2}\\s[0-9]{10}";
     public	static String password="^(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*()_+])[A-Za-z\\d!@#$%^&*()_+]{8,}$";
 
