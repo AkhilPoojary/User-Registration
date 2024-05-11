@@ -1,13 +1,20 @@
 package org.example;
 
+import org.exception.InValidFirstNameException;
+import org.exception.InvalidEmailException;
+import org.exception.InvalidMobileNumberException;
+import org.exception.InvalidPasswordException;
 import org.junit.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
+
 import static org.junit.Assert.assertTrue;
-//import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class UserTest {
+   User user=new User();
+
     @Test
     public void firstNameSad() {
 
@@ -69,4 +76,32 @@ public class UserTest {
     {
         assertTrue(email2.matches(User.email));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"akhil@#poojary", "Ramesh@gamil.com"})
+    public void testInvalidEmailException(String email) throws InvalidEmailException {
+        assertThrows(InvalidEmailException.class,()->user.validEmail(email));
+    }
+    @ParameterizedTest
+    @ValueSource(strings = {"0008w38", "1313187"})
+    public void testInvalidPasswordException(String password) throws InvalidPasswordException {
+
+        assertThrows(InvalidPasswordException.class,()->user.validatePassword(password));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings={"91 6362264367","1799909897979"})
+    public void testInvalidMobileNumberException(String phoneNumber)
+    {
+assertThrows(InvalidMobileNumberException.class,()->user.validatePhoneNumber(phoneNumber));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings={"bkhila","sunilaa","bvnb"})
+    public void testInvalidFirstNameException(String firstName)
+    {
+        assertThrows(InValidFirstNameException.class,()->user.validFirstName(firstName));
+    }
 }
+
+

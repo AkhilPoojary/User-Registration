@@ -1,6 +1,6 @@
 package org.exception;
 
-public class InValidNameException extends Exception{
+public class InValidFirstNameException extends Exception{
 
     public  String message ;
 
